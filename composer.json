@@ -1,0 +1,22 @@
+{
+    "name": "robo-finance/laravel-redis-queue-clear",
+    "description": "Remove all jobs from specified queue",
+    "type": "library",
+    "require": {
+        "laravel/laravel": "^5.6",
+        "predis/predis": "^1.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RoboFinance\\LaravelRedisQueueClearService\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RoboFinance\\LaravelRedisQueueClearService\\LaravelRedisQueueClearServiceProvider"
+            ]
+        }
+    }
+}

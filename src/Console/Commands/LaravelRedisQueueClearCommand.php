@@ -7,7 +7,7 @@ use Illuminate\Redis\RedisManager;
 
 class LaravelRedisQueueClearCommand extends Command
 {
-    protected $signature = 'queue:clear';
+    protected $signature = 'queue:clear {--queue-name= : Queue to clear}';
     protected $description = 'Remove all jobs from specified queue';
 
     /**
@@ -18,7 +18,7 @@ class LaravelRedisQueueClearCommand extends Command
      */
     public function handle(RedisManager $redis)
     {
-        $queue = $this->choice('Queue name?', $this->getQueues());
+        $queue = $this->option('queue-name') ?? $this->choice('Queue name?', $this->getQueues());
 
         $redis->del("queues:$queue");
     }
